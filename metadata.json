@@ -1,0 +1,6 @@
+{
+  "name": "OpenMap & Weather Navigator",
+  "description": "Interactive open-source map with real-time weather data, radar overlays, location search, and turn-by-turn routing powered by free APIs.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

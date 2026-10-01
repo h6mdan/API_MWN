@@ -1,0 +1,167 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Custom Leaflet Map styling - calm neutral background */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  z-index: 1;
+  background-color: #f1f5f9;
+  transition: background-color 0.3s ease;
+}
+
+.dark .leaflet-container {
+  background-color: #0f172a;
+}
+
+/* Custom Leaflet zoom control styling: calm in light mode, sleek in dark mode */
+.leaflet-bar {
+  border: 1px solid rgba(148, 163, 184, 0.35) !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.leaflet-bottom.leaflet-right {
+  bottom: 24px;
+  right: 18px;
+}
+
+@media (max-width: 768px) {
+  .leaflet-bottom.leaflet-right {
+    bottom: 76px !important;
+    right: 12px !important;
+  }
+}
+
+.dark .leaflet-bar {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.leaflet-bar a {
+  background-color: #ffffff !important;
+  color: #334155 !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8) !important;
+  width: 36px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.dark .leaflet-bar a {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.leaflet-bar a:hover {
+  background-color: #f8fafc !important;
+  color: #2563eb !important;
+}
+
+.dark .leaflet-bar a:hover {
+  background-color: #334155 !important;
+  color: #38bdf8 !important;
+}
+
+/* Custom Marker styles */
+.custom-pin-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+}
+
+.pulsing-user-dot {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.pulsing-user-dot .core-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
+  z-index: 2;
+}
+
+.pulsing-user-dot .pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(37, 99, 235, 0.35);
+  animation: pulse-ring-anim 2s infinite ease-out;
+  z-index: 1;
+}
+
+@keyframes pulse-ring-anim {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 3px;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
